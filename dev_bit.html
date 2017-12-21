@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+</head>
+<body>
+
+	<!--
+	<img id="avatar" src="" alt="">
+	-->
+<div id="recept"></div>
+
+
+<div id="tipos">
+	<div id="itemTipo" json="Me">Me</div>
+	<div id="itemTipo" json="Yumin">Yumin</div>
+	<div id="itemTipo" json="Gomez">Gomez</div>
+	<div id="itemTipo" json="Blank_male">Blank_male</div>
+	<div id="itemTipo" json="Green_dragon">Green_dragon</div>
+	<div id="itemTipo" json="This_dude_looks_like_David_Chilemsky">This_dude_looks_like_David_Chilemsky</div>
+	<div id="itemTipo" json="Xena">Xena</div>
+	<div id="itemTipo" json="Nonhuman_skin">Nonhuman_skin</div>
+	<div id="itemTipo" json="Others_i_ve_found">Others_i_ve_found</div>
+	<div id="itemTipo" json="Bat_wo_man">Bat_wo_man</div>
+	<div id="itemTipo" json="Cop_Firefighter">Cop_Firefighter</div>
+	<div id="itemTipo" json="Super_wo_man">Super_wo_man</div>
+	<div id="itemTipo" json="Animals">Animals</div>
+</div>
+
+
+</body>
+<script src="./jquery.min.js"></script>
+<script >
+	//https://render.bitstrips.com/render/10215853/270452369_2-s1-v3.png?cropped=%22body%22&outfit=1010009&head_rotation=7&body_rotation=7&width=300
+var avatar = "270452369_2-s1";
+var avatares = {"Me":["280531978_4-s1"],
+				"Yumin":["121464857_22-s1"],
+				"Gomez":["270452369_2-s1"],
+				"Blank_male":["128256895_1-s1"],
+				"Blank_female":["128257004_1_s1"],
+				"Green_dragon":["270451073_2-s1", "270450925_2-s1"],
+				"This_dude_looks_like_David_Chilemsky":["270452220_2-s1"],
+				"Xena":["270452149_2-s1", "270451899_2-s1", "270451562_2-s1"],
+				"Nonhuman_skin":["270450203_2-s1", "270451848_2-s1", "270451727_2-s1"],
+				"Others_i_ve_found":["280231973_2", "280531978_4-s1", "121464857_22-s1", "270452369_2-s1", 
+									 "128256895_1-s1", "128257004_1_s1", "280231973_2-s1", "270452367_2-s1", 
+									 "270452366_2-s1", "270452365_2-s1", "270452364_2-s1", "270452363_2-s1", 
+									 "270452362_2-s1", "270452361_2-s1", "270452360_2-s1"],
+				"Bat_wo_man":["270450967_2-s1", "270452030_2-s1", "270450911_2-s1", "270451749_2-s1", 
+							  "270451703_2-s1", "270451616_2-s1", "270451604_2-s1"],
+				"Cop_Firefighter":["270450972_2-s1", "270450905_2-s1", "270450191_2-s1", 
+								   "270450192_2-s1", "270451684_2-s1", "270451489_2-s1", 
+								   "270451452_2-s1", "270451390_2-s1"],
+				"Super_wo_man":["270450921_2-s1", "270450882_2-s1", "270450409_2-s1", 
+								"270452142_2-s1", "270451964_2-s1", "270451919_2-s1", 
+								"270451865_2-s1", "270451784_2-s1", "270451541_2-s1"],
+				"Animals":["270452315_2-s1", "270452243_2-s1", "270452261_2-s1", "270451988_2-s1", 
+						   "270451764_2-s1", "270451420_2-s1", "270451416_2-s1", "270451361_2-s1"]};
+
+ 	var cropped = "body"; //ou head para recortado
+ 	var outfit = "1018248"; //minimo encontrado: 1010009 e maximo de 1018386
+ 	var head_rotation = "7";
+ 	var body_rotation = "7";
+ 	var width = "300";
+
+/*
+pd2={"mouth":"_blank"}dentro pd2, você pode colocar qualquer uma dessas chaves:[ "beard", "brow_L", "brow_R", "cranium", "detail_E_L", "detail_E_R", "detail_L", "detail_R", "detail_T", "ear_L", "ear_R", "eye_L", "eye_R", "eyelash_L", "eyelash_R", "eyelid_L", "eyelid_R", "eyelines_L", "eyelines_R", "forehead", "glasses", "hair_back", "hair_front", "hairbottom", "hat", "jaw", "mouth", "nose", "pupil_L", "pupil_R", "stachin", "stachout", "tongue"]
+
+*/
+
+
+
+$(document).on("click","#itemTipo",function(){
+	var json = $(this).attr("json");
+	var length =  avatares[json].length;
+
+	$("#recept").empty();
+
+	for (var i = length - 1; i >= 0; i--) {
+			var url = "https://render.bitstrips.com/render/10215853/"+avatares[json][i]+"-v3.png?cropped="+cropped+"&outfit="+outfit+"&head_rotation="+head_rotation+"&body_rotation="+body_rotation+"&width="+width;
+		
+		$("#recept").append("<img id='avatar' src='"+url+"'>");
+	
+	}
+
+});
+
+
+
+//for (var i = avatares.length - 1; i >= 0; i--) {
+
+	//	
+
+//}
+
+
+
+
+
+		//var url = "https://render.bitstrips.com/render/10215853/"+avatar+"-v3.png?"+cropped+outfit+head_rotation+body_rotation+width;
+	
+	//	
+
+
+
+
+
+</script>
+</html>
