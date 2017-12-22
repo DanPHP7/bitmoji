@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+</head>
+<body>
+<div id="recept">
+	
+</div>
+</body>
+<script src="./jquery.min.js"></script>
+<script>
+	
+
+var jqxhr = $.getJSON("bitmoji.json", function(data) {
+  var roupas_feminias = data.outfits.female.brands;
+  var roupas_masculinas = data.outfits.male.brands;
+ 
+ 
+  	for (var i = roupas_masculinas.length - 1; i >= 0; i--) {
+  		var marca = roupas_masculinas[i].name;
+  		var _roupas = roupas_masculinas[i].outfits; 
+
+  			  recpt_roupas(_roupas);
+
+  	}  
+ 
+
+  	for (var i = roupas_feminias.length - 1; i >= 0; i--) {
+  		var marca = roupas_feminias[i].name;
+  		var _roupas = roupas_feminias[i].outfits; 
+
+  			   recpt_roupas(_roupas);
+
+  	} 
+
+})
+  .done(function() {
+    //console.log( "second success" );
+  })
+  .fail(function() {
+   // console.log( "error" );
+  })
+  .always(function() {
+   // console.log( "complete" );
+  });
+
+
+function recpt_roupas(json) {
+ var length = json.length;
+
+ 	for (var i = json.length - 1; i >= 0; i--) {
+ 		var image = json[i].image;
+ 		var id = json[i].id;
+ 		var outfit = json[i].outfit;
+
+ 		$("#recept").append("<img src='"+image+"' >");
+
+ 	}
+
+}
+
+</script>
+</html>
